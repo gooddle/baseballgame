@@ -6,12 +6,14 @@ fun main() {
         val input = readln()
         when(input.length){
             3 ->{if(input.toSet().size !=3){
-                println("동일한 숫자 반복 사용 금지")
+                println("동일한 숫자 사용해주세요")
                 continue
             }
             else if(!input.all { it.isDigit() }){
                 println("숫자 사용")
                 continue
+            }else if("0" in input){
+                println("0은 사용 불가입니다.")
             }
             }
 
