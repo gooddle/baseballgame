@@ -1,13 +1,9 @@
 package org.example
-
-
-
-
 fun main() {
-    var inresult = game()
+    val inresult = game()
     while (true) {
         println("게임 시작")
-        val input = readln()!!.toString()
+        val input = readln()
         when(input.length){
             3 ->{if(input[0] == input[1] || input[0] == input[2] || input[1] == input[2]){
                 println("동일한 숫자 반복 사용 금지")
@@ -38,7 +34,7 @@ fun main() {
 
 
 fun game(): String {
-    var answer = (100.. 999).toList()
+    val answer = (100.. 999).toList().toMutableList()
     val result =mutableListOf<Int>()
     for(i in answer.indices){
         if(answer[i].toString().contains("0")){
@@ -47,7 +43,7 @@ fun game(): String {
             result.add(i)
         }
     }
-    answer -= result
+    answer -= result.toSet()
     return answer.random().toString()
 }
 
