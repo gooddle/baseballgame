@@ -1,9 +1,9 @@
 package org.example
 
 
-import kotlin.random.Random
 
-fun main(args : Array<String>) {
+
+fun main() {
     var inresult = game()
     while (true) {
         println("게임 시작")
@@ -25,16 +25,16 @@ fun main(args : Array<String>) {
         val strikes= countsStrike (input,inresult)
         val balls= countsBalls(input,inresult)
 
-        println("${strikes}:스트라이크 ,${balls} : 볼")
+        println("스트라이크:${strikes} ,볼:${balls} ")
         if(strikes == 3){
             println("게임 종료")
             break
         }
 
 
-        }
-
     }
+
+}
 
 
 fun game(): String {
@@ -47,9 +47,9 @@ fun game(): String {
             result.add(i)
         }
     }
-   answer -= result
-   return answer.random().toString()
-   }
+    answer -= result
+    return answer.random().toString()
+}
 
 fun countsStrike(input: String, answer: String): Int {
     var strikes = 0
@@ -70,23 +70,3 @@ fun countsBalls(input: String, answer: String): Int {
     }
     return balls
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
