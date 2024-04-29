@@ -5,7 +5,7 @@ fun main() {
         println("게임 시작")
         val input = readln()
         when(input.length){
-            3 ->{if(input[0] == input[1] || input[0] == input[2] || input[1] == input[2]){
+            3 ->{if(input.toSet().size !=3){
                 println("동일한 숫자 반복 사용 금지")
                 continue
             }
@@ -37,11 +37,7 @@ fun game(): String {
     val answer = (100.. 999).toList().toMutableList()
     val result =mutableListOf<Int>()
     for(i in answer.indices){
-        if(answer[i].toString().contains("0")){
-            result.add(i)
-        }else if(answer[0]==answer[1]||answer[0]==answer[2]||answer[1]==answer[2]){
-            result.add(i)
-        }
+       if(answer[i].toString().contains("0")||answer[i].toString().toSet().size !=3){}
     }
     answer -= result.toSet()
     return answer.random().toString()
