@@ -39,7 +39,9 @@ fun game(): String {
     val answer = (100.. 999).toList().toMutableList()
     val result =mutableListOf<Int>()
     for(i in answer.indices){
-       if(answer[i].toString().contains("0")||answer[i].toString().toSet().size !=3){}
+       if(answer[i].toString().contains("0")||answer[i].toString().toSet().size !=3){
+           result.add(i)
+       }
     }
     answer -= result.toSet()
     return answer.random().toString()
