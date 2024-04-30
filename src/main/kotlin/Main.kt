@@ -36,15 +36,10 @@ fun main() {
 
 
 fun game(): String {
-    val answer = (100.. 999).toList().toMutableList()
-    val result =mutableListOf<Int>()
-    for(i in answer.indices){
-       if(answer[i].toString().contains("0")||answer[i].toString().toSet().size !=3){
-           result.add(i)
-       }
-    }
-    answer -= result.toSet()
-    return answer.random().toString()
+    val answer = (1..9).shuffled().take(3)
+    val number = answer.joinToString("")
+    println(number)
+    return number
 }
 
 fun countsStrike(input: String, answer: String): Int {
