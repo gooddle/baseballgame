@@ -16,7 +16,7 @@ fun countsBalls(input: String, answer: String): Int {
     return ball.operate(input,answer)
 }
 
-fun resultGame(inputCounts: String,gameCount: Int){
+fun resultGame(inputCounts: Int,gameCount: Int){
     val maps =MakeShow()
     maps.operate(gameCount, inputCounts)
     }
