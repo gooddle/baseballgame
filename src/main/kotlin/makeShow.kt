@@ -1,10 +1,10 @@
 package org.example
 
-val resultMap = mutableMapOf<Int, String>()
+val resultMap = mutableMapOf<Int, Int>()
 
 class MakeShow {
 
-    fun operate(gameCount:Int,inputCounts: String){
+    fun operate(gameCount:Int,inputCounts: Int){
         resultMap[gameCount] = inputCounts
         println("게임 판수:${gameCount},시도 횟수:${inputCounts}")
     }
