@@ -11,14 +11,18 @@ class MakeCounts {
                 1 -> {
                     gameCount++
                     var inputCount = 0
-                    val answer = (0..9).shuffled().take(3)
-                    val number = answer.joinToString("")
-                    if (answer[0] == 0) {
-                        answer.shuffled().take(3)
-                    }
-                    println(number)
+                    println("정답은 앞자리가 0이 아닌 서로 다른 3자리수!")
 
+                    var answer = (0..9).shuffled().take(3)
+                    while(answer[0] == 0) {
+                        answer = (0..9).shuffled().take(3)
+                    }
+                    val number = answer.joinToString("")
+
+
+                    println(number)
                     val scoreResult = number
+
                     while (true) {
                         println("게임 시작")
                         val input = readln()
@@ -26,17 +30,19 @@ class MakeCounts {
                         when (input.length) {
                             3 -> {
                                 if (input.toSet().size != 3) {
-                                    println("동일한 숫자 사용해주세요")
+                                    println("동일한 숫자 사용 할 수 없습니다.")
                                     continue
                                 } else if (!input.all { it.isDigit() }) {
                                     println("숫자 사용")
                                     continue
                                 } else if (input[0] == '0') {
-                                    println("0은 사용 불가입니다.")
+                                    println("0은 맨 앞자리 사용 불가입니다.")
                                 }
                             }
 
-                            else -> continue
+                            else ->{
+                                println("규칙을 지켜주세요!")
+                                continue}
 
                         }
                         val strikes = countsStrike(input, scoreResult)
@@ -44,8 +50,7 @@ class MakeCounts {
 
                         println("스트라이크:${strikes} ,볼:${balls} ")
                         if (strikes == 3) {
-                            resultGame(inputCount.toString(), gameCount)
-                            println("${inputCount}")
+                            resultGame(inputCount, gameCount)
                             println("게임 종료")
                             break
                         }
