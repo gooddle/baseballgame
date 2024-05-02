@@ -3,12 +3,13 @@ package org.example
 class MakeCounts() {
     fun operate() {
         var gameCount = 0
-
+        val resultMaps =mutableMapOf<Int,Int>()
         while (true) {
             println("1.게임시작 , 2.전적보기 , 3.게임종료")
             val start = readLine()?.toIntOrNull() ?: continue
             when (start) {
                 1 -> {
+
                     gameCount++
                     var inputCount = 0
                     println("정답은 앞자리가 0이 아닌 서로 다른 3자리수!")
@@ -50,7 +51,7 @@ class MakeCounts() {
 
                         println("스트라이크:${strikes} ,볼:${balls} ")
                         if (strikes == 3) {
-                            resultGame(inputCount, gameCount)
+                            resultMaps[gameCount]=inputCount
                             println("게임 종료")
                             break
                         }
@@ -63,7 +64,7 @@ class MakeCounts() {
                 2 -> {
                     println("기록보기")
                     println("-----------------------------------")
-                    show()
+                    MakeShow().operate(resultMaps)
                     println("-----------------------------------")
                     continue
                 }
@@ -82,4 +83,3 @@ class MakeCounts() {
         }
     }
 }
-

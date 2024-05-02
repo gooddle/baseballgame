@@ -1,21 +1,14 @@
 package org.example
 
-val resultMap = mutableMapOf<Int, Int>()
-
-class MakeShow {
-
-    fun operate(gameCount:Int,inputCounts: Int){
-        resultMap[gameCount] = inputCounts
-        println("게임 판수:${gameCount},시도 횟수:${inputCounts}")
-    }
 
 
-    fun operate(){
-        if(resultMap.isEmpty()){
+class MakeShow() {
+    fun operate(resultMaps:MutableMap<Int,Int>){
+        if(resultMaps.isEmpty()){
             println("기록이 없습니다.")
         }
 
-        for((key,value ) in resultMap){
+        for((key,value ) in resultMaps){
             println("게임 판수 :${key},시도 횟수:${value}")
         }
     }
