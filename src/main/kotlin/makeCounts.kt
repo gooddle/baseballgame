@@ -1,6 +1,6 @@
 package org.example
 
-class MakeCounts {
+class MakeCounts() {
     fun operate() {
         var gameCount = 0
 
@@ -73,9 +73,13 @@ class MakeCounts {
                     break
                 }
 
-                else -> throw error("1,2,3 메뉴중에 고르세요")
+                else ->{println("1,2,3 선택 메뉴얼을 지켜주세여")
+                    continue
+                }
+
             }
 
         }
     }
 }
+
