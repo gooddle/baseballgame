@@ -3,10 +3,11 @@ package org.example
 class MakeCounts() {
     fun operate() {
         var gameCount = 0
-        val resultMaps =mutableMapOf<Int,Int>()
+        val resultMaps = mutableMapOf<Int, Int>()
         while (true) {
             println("1.게임시작 , 2.전적보기 , 3.게임종료")
-            val start = readLine()?.toIntOrNull() ?: continue
+            var start = readLine()?.toInt() ?: continue
+
             when (start) {
                 1 -> {
 
@@ -15,18 +16,18 @@ class MakeCounts() {
                     println("정답은 앞자리가 0이 아닌 서로 다른 3자리수!")
 
                     var answer = (0..9).shuffled().take(3)
-                    while(answer[0] == 0) {
+                    while (answer[0] == 0) {
                         answer = (0..9).shuffled().take(3)
                     }
                     val number = answer.joinToString("")
 
 
-                    println(number)
+// 정답 확인용                   println(number)
                     val scoreResult = number
 
                     while (true) {
                         println("게임 시작")
-                        val input = readln()
+                        var input = readln()
                         inputCount++
                         when (input.length) {
                             3 -> {
@@ -41,9 +42,10 @@ class MakeCounts() {
                                 }
                             }
 
-                            else ->{
+                            else -> {
                                 println("규칙을 지켜주세요!")
-                                continue}
+                                continue
+                            }
 
                         }
                         val strikes = countsStrike(input, scoreResult)
@@ -51,7 +53,7 @@ class MakeCounts() {
 
                         println("스트라이크:${strikes} ,볼:${balls} ")
                         if (strikes == 3) {
-                            resultMaps[gameCount]=inputCount
+                            resultMaps[gameCount] = inputCount
                             println("게임 종료")
                             break
                         }
@@ -74,12 +76,14 @@ class MakeCounts() {
                     break
                 }
 
-                else ->{println("1,2,3 선택 메뉴얼을 지켜주세여")
-                    continue
+                else -> println("1,2,3번 중에 골라주세요")
+
                 }
 
             }
 
+            }
         }
-    }
-}
+
+
+
